@@ -1,0 +1,5 @@
+<form>
+  <!-- Browser will stop submission if empty -->
+  Name: <input type="text" name="name" required>
+  <input type="submit">
+</form>
