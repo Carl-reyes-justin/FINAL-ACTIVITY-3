@@ -1,0 +1,11 @@
+<form method="post" action="">
+  Message:<br>
+  <textarea name="message"></textarea><br>
+  <input type="submit">
+</form>
+
+<?php
+if(isset($_POST['message'])) {
+  echo "Your Message: " . htmlspecialchars($_POST['message']);
+}
+?>
