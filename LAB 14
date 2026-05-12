@@ -1,0 +1,13 @@
+<form method="post" action="">
+  Hobbies:<br>
+  <input type="checkbox" name="hobbies[]" value="Reading"> Reading<br>
+  <input type="checkbox" name="hobbies[]" value="Gaming"> Gaming<br>
+  <input type="checkbox" name="hobbies[]" value="Sports"> Sports<br>
+  <input type="submit">
+</form>
+
+<?php
+if(isset($_POST['hobbies'])) {
+  echo "Your hobbies: " . implode(", ", $_POST['hobbies']);
+}
+?>
