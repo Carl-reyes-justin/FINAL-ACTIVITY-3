@@ -1,0 +1,44 @@
+<?php
+$errors = [];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    
+    if(empty($name)) $errors[] = "Name is required.";
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Valid email is required.";
+    
+    if(empty($errors)) {
+        echo "<h2>Registration Successful</h2>";
+        echo "Name: " . htmlspecialchars($name) . "<br>";
+        echo "Email: " . htmlspecialchars($email) . "<br>";
+        echo "Gender: " . ($_POST['gender'] ?? 'N/A') . "<br>";
+        echo "Course: " . $_POST['course'] . "<br>";
+        echo "Hobbies: " . (isset($_POST['hobbies']) ? implode(", ", $_POST['hobbies']) : "None") . "<br>";
+        echo "Message: " . htmlspecialchars($_POST['message']);
+        exit;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+  <?php foreach($errors as $error) echo "<p style='color:red;'>$error</p>"; ?>
+  
+  <form method="post" action="">
+    Name: <input type="text" name="name" required><br>
+    Email: <input type="email" name="email" required><br>
+    Gender: <input type="radio" name="gender" value="Male"> Male 
+            <input type="radio" name="gender" value="Female"> Female<br>
+    Course: <select name="course">
+              <option>BSIT</option>
+              <option>BSCS</option>
+            </select><br>
+    Hobbies:<br>
+    <input type="checkbox" name="hobbies[]" value="Coding"> Coding
+    <input type="checkbox" name="hobbies[]" value="Music"> Music<br>
+    Message: <textarea name="message"></textarea><br>
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>
