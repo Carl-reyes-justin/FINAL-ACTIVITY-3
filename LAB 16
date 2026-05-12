@@ -1,0 +1,20 @@
+<?php
+if(isset($_POST['age'])) {
+  $age = $_POST['age'];
+  if(!is_numeric($age) || $age < 1 || $age > 100) {
+    echo "Please enter a valid age (1-100)";
+  } else {
+    echo "Age is: " . $age;
+  }
+}
+?>
+<form method="post">
+  Age: <input type="text" name="age">
+  <input type="submit">
+</form>
+
+<form>
+  <!-- Browser will stop submission if empty -->
+  Name: <input type="text" name="name" required>
+  <input type="submit">
+</form>
