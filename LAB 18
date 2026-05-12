@@ -1,0 +1,11 @@
+<h3>GET Form (Data shows in URL)</h3>
+<form method="get">
+  Info: <input type="text" name="info">
+  <input type="submit">
+</form>
+
+<h3>POST Form (Data is hidden)</h3>
+<form method="post">
+  Info: <input type="text" name="info">
+  <input type="submit">
+</form>
