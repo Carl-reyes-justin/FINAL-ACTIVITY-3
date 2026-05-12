@@ -1,0 +1,4 @@
+<form>
+  Type something: <input type="text" name="test">
+  <input type="reset" value="Clear Form">
+</form>
