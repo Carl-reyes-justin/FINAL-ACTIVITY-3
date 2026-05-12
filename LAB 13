@@ -1,0 +1,12 @@
+<form method="post" action="">
+  Username: <input type="text" name="user"><br>
+  Password: <input type="password" name="pass"><br>
+  <input type="submit">
+</form>
+
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+  echo "Login attempt for user: " . htmlspecialchars($_POST['user']);
+  // We do not echo the password for security
+}
+?>
