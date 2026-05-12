@@ -1,0 +1,11 @@
+<?php
+if(isset($_POST['name'])) {
+  // htmlspecialchars turns symbols like < into text so scripts won't run
+  echo "Safe Output: " . htmlspecialchars($_POST['name']);
+}
+?>
+<form method="post" action="">
+  Try entering &lt;script&gt;alert('XSS')&lt;/script&gt;: 
+  <input type="text" name="name">
+  <input type="submit">
+</form>
